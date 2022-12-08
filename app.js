@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const format = require("date-fns/format");
@@ -7,6 +8,11 @@ const isMatch = require("date-fns/isMatch");
 var isValid = require("date-fns/isValid");
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 let database;
 const initializeDBandServer = async () => {
