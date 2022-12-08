@@ -16,8 +16,6 @@ Write APIs to perform operations on the table `todo`, with the following columns
 | due_date | DATE    |
 
 <MultiLineNote>
-  
-  - Replace the spaces in URL with `%20`.
   - Possible values for `priority` are `HIGH`, `MEDIUM`, and `LOW`.
   - Possible values for `status` are `TO DO`, `IN PROGRESS`, and `DONE`.
   - Possible values for `category` are `WORK`, `HOME`, and `LEARNING`.
@@ -85,11 +83,11 @@ Use `date-fns` format function to format the date. Refer to the documentation [l
 
   - **Sample API**
     ```
-    /todos/?status=TO%20DO
+    /todos/
     ```
   - **Description**:
 
-    Returns a list of all todos whose status is 'TO DO'
+    Returns a list of all todos
 
   - **Response**
 
@@ -104,159 +102,6 @@ Use `date-fns` format function to format the date. Refer to the documentation [l
         "dueDate": "2021-09-22"
       },
       ...
-    ]
-    ```
-
-- **Scenario 2**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH'
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 1,
-        "todo": "Learn Node JS",
-        "priority": "HIGH",
-        "status": "IN PROGRESS",
-        "category": "LEARNING",
-        "status": "IN PROGRESS",
-        "dueDate": "2021-04-04"
-      }
-    ]
-    ```
-
-- **Scenario 3**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH&status=IN%20PROGRESS
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH' and status is 'IN PROGRESS'
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 2,
-        "todo": "Learn Node JS",
-        "priority": "HIGH",
-        "category": "LEARNING",
-        "status": "IN PROGRESS",
-        "dueDate": "2021-02-22"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 4**
-
-  - **Sample API**
-    ```
-    /todos/?search_q=Buy
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose todo contains 'Buy' text
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 2,
-        "todo": "Buy a Car",
-        "priority": "MEDIUM",
-        "status":"TO DO"
-        "category": "HOME",
-        "dueDate": "2021-09-22"
-      }
-    ]
-    ```
-
-- **Scenario 5**
-
-  - **Sample API**
-    ```
-    /todos/?category=WORK&status=DONE
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose category is 'WORK' and status is 'DONE'
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 4,
-        "todo": "Fix the bug",
-        "priority": "MEDIUM",
-        "status": "TO DO",
-        "category": "WORK",
-        "dueDate": "2021-01-12"
-      }
-    ]
-    ```
-
-- **Scenario 6**
-
-  - **Sample API**
-    ```
-    /todos/?category=HOME
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose category is 'HOME'
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 2,
-        "todo": "Buy a Car",
-        "priority": "MEDIUM",
-        "status": "TO DO",
-        "category": "HOME",
-        "dueDate": "2021-09-22"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 7**
-
-  - **Sample API**
-    ```
-    /todos/?category=LEARNING&priority=HIGH
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose category is 'LEARNING' and priority is 'HIGH'
-
-  - **Response**
-
-    ```
-    [
-      {
-        "id": 1,
-        "todo": "Learn Node JS",
-        "priority": "HIGH",
-        "status": "IN PROGRESS",
-        "category": "LEARNING",
-        "dueDate": "2021-04-04"
-      }
     ]
     ```
 
@@ -281,31 +126,6 @@ Returns a specific todo based on the todo ID
   "category": "LEARNING",
   "dueDate": "2021-04-04"
 }
-```
-
-### API 3
-
-#### Path: `/agenda/`
-
-#### Method: `GET`
-
-#### Description:
-
-Returns a list of all todos with a specific due date in the query parameter `/agenda/?date=2021-02-22`
-
-#### Response
-
-```
-[
-  {
-    "id": 3,
-    "todo": "Clean the garden",
-    "priority": "LOW",
-    "status": "TO DO",
-    "category": "HOME",
-    "dueDate": "2021-02-22"
-  }
-]
 ```
 
 ### API 4
